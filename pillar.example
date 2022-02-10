@@ -3,7 +3,7 @@
 ---
 resolver:
   # On the off chance you don't want to manage resolver on a system
-  enabled: false 
+  enabled: false
 
   # defaults to 'purged' because it conflicts with managing it in salt
   # so don't set to installed unless you know what you're doing
