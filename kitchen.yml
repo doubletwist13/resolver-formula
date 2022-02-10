@@ -293,7 +293,7 @@ provisioner:
   log_level: debug
   salt_install: none
   require_chef: false
-  formula: TEMPLATE
+  formula: resolver
   salt_copy_filter:
     - .kitchen
     - .git
@@ -321,16 +321,16 @@ suites:
       state_top:
         base:
           '*':
-            - TEMPLATE._mapdata
-            - TEMPLATE
+            - resolver._mapdata
+            - resolver
       pillars:
         top.sls:
           base:
             '*':
-              - TEMPLATE
+              - resolver
               - define_roles
       pillars_from_files:
-        TEMPLATE.sls: pillar.example
+        resolver.sls: pillar.example
         define_roles.sls: test/salt/pillar/define_roles.sls
     verifier:
       inspec_tests:
@@ -349,17 +349,17 @@ suites:
       state_top:
         base:
           '*':
-            - TEMPLATE._mapdata
-            - TEMPLATE
+            - resolver._mapdata
+            - resolver
       pillars:
         top.sls:
           base:
             '*':
-              - TEMPLATE
+              - resolver
               - gentoo
               - define_roles
       pillars_from_files:
-        TEMPLATE.sls: pillar.example
+        resolver.sls: pillar.example
         gentoo.sls: test/salt/pillar/gentoo.sls
         define_roles.sls: test/salt/pillar/define_roles.sls
     verifier:

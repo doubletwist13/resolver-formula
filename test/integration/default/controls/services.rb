@@ -3,7 +3,7 @@
 # Prepare platform "finger"
 platform_finger = system.platform[:finger].split('.').first.to_s
 
-control 'TEMPLATE.service.running' do
+control 'resolver.service.running' do
   title 'The service should be installed, enabled and running'
 
   # Overide by `platform_finger`

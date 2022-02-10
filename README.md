@@ -1,7 +1,7 @@
-TEMPLATE-formula {#readme}
+resolver-formula {#readme}
 ================
 
-[![Travis CI Build Status](https://travis-ci.com/saltstack-formulas/TEMPLATE-formula.svg?branch=master)](https://travis-ci.com/saltstack-formulas/TEMPLATE-formula)
+[![Travis CI Build Status](https://travis-ci.com/saltstack-formulas/resolver-formula.svg?branch=master)](https://travis-ci.com/saltstack-formulas/resolver-formula)
 [![Semantic Release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white)](https://github.com/pre-commit/pre-commit)
 
@@ -113,14 +113,14 @@ Available states
 ::: {.contents local=""}
 :::
 
-### `TEMPLATE`
+### `resolver`
 
 *Meta-state (This is a state that includes other states)*.
 
-This installs the TEMPLATE package, manages the TEMPLATE configuration
-file and then starts the associated TEMPLATE service.
+This installs the resolver package, manages the resolver configuration
+file and then starts the associated resolver service.
 
-### `TEMPLATE.check`
+### `resolver.check`
 
 This state checks that the minion has actually enabled this formula either in the parameters/default.yaml or in pillar. 
 This ensures that a formula doesn't get mistakenly applied to the wrong minion when applying states at the command line.
@@ -128,59 +128,59 @@ It should be included both in the formula's 'init.sls' as well as at the top of 
 
 - For 'common' formulas that get applied everywhere, set the default (defaults.yaml  or parameters ) to 'True' and use 'False' in pillar (or role or minion-specific parameters) 
 - For role-specific formulas, set the default to 'False' and use 'True' in pillar (or role or minion-specific parameters)
-### `TEMPLATE.package`
+### `resolver.package`
 
-This state will install the TEMPLATE package only.
+This state will install the resolver package only.
 
-### `TEMPLATE.config`
+### `resolver.config`
 
-This state will configure the TEMPLATE service and has a dependency on
-`TEMPLATE.install` via include list.
+This state will configure the resolver service and has a dependency on
+`resolver.install` via include list.
 
-### `TEMPLATE.service`
+### `resolver.service`
 
-This state will start the TEMPLATE service and has a dependency on
-`TEMPLATE.config` via include list.
+This state will start the resolver service and has a dependency on
+`resolver.config` via include list.
 
-### `TEMPLATE.clean`
+### `resolver.clean`
 
 *Meta-state (This is a state that includes other states)*.
 
-this state will undo everything performed in the `TEMPLATE` meta-state
+this state will undo everything performed in the `resolver` meta-state
 in reverse order, i.e. stops the service, removes the configuration file
 and then uninstalls the package.
 
-### `TEMPLATE.service.clean`
+### `resolver.service.clean`
 
-This state will stop the TEMPLATE service and disable it at boot time.
+This state will stop the resolver service and disable it at boot time.
 
-### `TEMPLATE.config.clean`
+### `resolver.config.clean`
 
-This state will remove the configuration of the TEMPLATE service and has
-a dependency on `TEMPLATE.service.clean` via include list.
+This state will remove the configuration of the resolver service and has
+a dependency on `resolver.service.clean` via include list.
 
-### `TEMPLATE.package.clean`
+### `resolver.package.clean`
 
-This state will remove the TEMPLATE package and has a depency on
-`TEMPLATE.config.clean` via include list.
+This state will remove the resolver package and has a depency on
+`resolver.config.clean` via include list.
 
-### `TEMPLATE.subcomponent`
+### `resolver.subcomponent`
 
 *Meta-state (This is a state that includes other states)*.
 
 This state installs a subcomponent configuration file before configuring
-and starting the TEMPLATE service.
+and starting the resolver service.
 
-### `TEMPLATE.subcomponent.config`
+### `resolver.subcomponent.config`
 
-This state will configure the TEMPLATE subcomponent and has a dependency
-on `TEMPLATE.config` via include list.
+This state will configure the resolver subcomponent and has a dependency
+on `resolver.config` via include list.
 
-### `TEMPLATE.subcomponent.config.clean`
+### `resolver.subcomponent.config.clean`
 
-This state will remove the configuration of the TEMPLATE subcomponent
-and reload the TEMPLATE service by a dependency on
-`TEMPLATE.service.running` via include list and `watch_in` requisite.
+This state will remove the configuration of the resolver subcomponent
+and reload the resolver service by a dependency on
+`resolver.service.running` via include list and `watch_in` requisite.
 
 Testing
 -------
@@ -203,7 +203,7 @@ Where `[platform]` is the platform name defined in `kitchen.yml`, e.g.
 
 ### `bin/kitchen converge`
 
-Creates the docker instance and runs the `TEMPLATE` main state, ready
+Creates the docker instance and runs the `resolver` main state, ready
 for testing.
 
 ### `bin/kitchen verify`

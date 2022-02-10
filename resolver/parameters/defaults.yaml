@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+#
+# Set default values.
+---
+values:
+  enabled: False
+  pkg:
+    name: resolver
+  rootgroup: root
+  config: '/etc/resolver'
+  service:
+    name: resolver
+  subcomponent:
+    config: '/etc/resolver-subcomponent-formula.conf'
+  # Just here for testing
+  added_in_defaults: defaults_value
+  winner: defaults
+...
