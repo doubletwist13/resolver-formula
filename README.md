@@ -136,11 +136,6 @@ This state will install the resolver package only.
 This state will configure the resolver service and has a dependency on
 `resolver.install` via include list.
 
-### `resolver.service`
-
-This state will start the resolver service and has a dependency on
-`resolver.config` via include list.
-
 ### `resolver.clean`
 
 *Meta-state (This is a state that includes other states)*.
@@ -148,10 +143,6 @@ This state will start the resolver service and has a dependency on
 this state will undo everything performed in the `resolver` meta-state
 in reverse order, i.e. stops the service, removes the configuration file
 and then uninstalls the package.
-
-### `resolver.service.clean`
-
-This state will stop the resolver service and disable it at boot time.
 
 ### `resolver.config.clean`
 
@@ -162,24 +153,6 @@ a dependency on `resolver.service.clean` via include list.
 
 This state will remove the resolver package and has a depency on
 `resolver.config.clean` via include list.
-
-### `resolver.subcomponent`
-
-*Meta-state (This is a state that includes other states)*.
-
-This state installs a subcomponent configuration file before configuring
-and starting the resolver service.
-
-### `resolver.subcomponent.config`
-
-This state will configure the resolver subcomponent and has a dependency
-on `resolver.config` via include list.
-
-### `resolver.subcomponent.config.clean`
-
-This state will remove the configuration of the resolver subcomponent
-and reload the resolver service by a dependency on
-`resolver.service.running` via include list and `watch_in` requisite.
 
 Testing
 -------
