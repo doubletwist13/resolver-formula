@@ -5,9 +5,10 @@
 ---
 values:
   # Default to enabled since we want all of our systems to enforce resolv.conf
-  enabled: True
+  enabled: true
 
-  # resolvconf pkg defaults to 'purged' - I believe it conflicts with managing resolv.conf with salt.
+  # resolvconf pkg defaults to 'purged'
+  # I believe it conflicts with managing resolv.conf with salt.
   pkg:
     name: resolver
     state: purged

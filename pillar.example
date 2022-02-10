@@ -2,7 +2,7 @@
 # vim: ft=yaml
 ---
 resolver:
-  
+
   # defaults to 'purged' because it conflicts with managing it in salt
   # so don't set to installed unless you know what you're doing
   pkg:
@@ -24,4 +24,3 @@ resolver:
     - 'rotate'
     - 'timeout:1'
     - 'attempts:5'
-    
