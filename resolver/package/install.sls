@@ -10,5 +10,5 @@ include:
   - {{ sls_enable_check }}
 
 resolver-package-install-pkg-installed:
-  pkg.installed:
+  pkg.{{ resolver.pkg.state }}:
     - name: {{ resolver.pkg.name }}

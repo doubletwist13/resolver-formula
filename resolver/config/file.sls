@@ -15,16 +15,26 @@ include:
 resolver-config-file-file-managed:
   file.managed:
     - name: {{ resolver.config }}
-    - source: {{ files_switch(['example.tmpl'],
+    - source: {{ files_switch(['/etc/resolv.conf.jinja'],
                               lookup='resolver-config-file-file-managed'
                  )
               }}
     - mode: "0644"
     - user: root
-    - group: {{ resolver.rootgroup }}
+    - group: root
     - makedirs: True
     - template: jinja
     - require:
       - sls: {{ sls_package_install }}
     - context:
         resolver: {{ resolver | json }}
+
+
+{# on the off chance we do have 'resolver' package installed we need to run something #}
+{% if resolver.pkg.state == 'installed' %}
+resolv-update-command:
+  cmd.run:
+    - name: resolvconf -u
+    - onchanges:
+      - file: resolver-config-file-file-managed
+{% endif %}

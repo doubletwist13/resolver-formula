@@ -2,6 +2,26 @@
 # vim: ft=yaml
 ---
 resolver:
+  
+  # defaults to 'purged' because it conflicts with managing it in salt
+  # so don't set to installed unless you know what you're doing
+  pkg:
+    name: resolver
+    state: installed
+
+  domain: example.com
+  searchpaths:
+    - example.com
+    - example.org
+  nameservers:
+    - 8.8.8.8
+    - 4.4.4.4
+  options:
+    - 'rotate'
+    - 'timeout:1'
+    - 'attempts:5'
+    
+resolver:
   lookup:
     enabled: True
     master: template-master
