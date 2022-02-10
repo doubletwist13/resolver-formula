@@ -13,6 +13,5 @@
 ---
 values:
   pkg:
-    name: resolver-debian
-  config: /etc/resolver.d/custom.conf
+    name: resolvconf
 ...

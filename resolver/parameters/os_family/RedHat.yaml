@@ -13,6 +13,5 @@
 ---
 values:
   pkg:
-    name: resolver-redhat
-  config: /etc/resolver.conf
+    name: resolver
 ...

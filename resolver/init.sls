@@ -4,5 +4,3 @@
 include:
   - .package
   - .config
-  - .service
-  - .subcomponent
