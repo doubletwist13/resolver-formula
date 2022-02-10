@@ -30,7 +30,7 @@ resolver-config-file-file-managed:
         resolver: {{ resolver | json }}
 
 
-{# on the off chance we do have 'resolver' package installed we need to run something #}
+{# if we are using the resolvconf package we run an update command on changes #}
 {% if resolver.pkg.state == 'installed' %}
 resolv-update-command:
   cmd.run:
