@@ -9,7 +9,7 @@ A saltstack formula to configure the dns resolver(s) a server will use.
  
 Known Issues
 -------------
-    - Although This formula follows the 'v5' template-formula as a template, I don't yet know how to get the test stuff working (I'm don't come from a development background) - so don't expect that to work at all at this time. Hopefully soon I'll have time to figure that out and add it to all of my formulas.
+    - Although This formula follows the 'v5' template-formula as a template, I don't yet know how to get the test stuff working (I don't come from a development background) - so don't expect that to work at all at this time. Hopefully soon I'll have time to figure that out and add it to all of my formulas.
 
 Available states
 ----------------
